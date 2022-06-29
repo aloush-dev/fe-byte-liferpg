@@ -1,3 +1,18 @@
 .App {
   text-align: center;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 60px auto auto 60px;
+  grid-template-areas:
+    "header"
+    "game"
+    "content"
+    "nav";
+}

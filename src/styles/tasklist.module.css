@@ -1,0 +1,7 @@
+.container {
+  grid-area: content;
+  background-color: grey;
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+
