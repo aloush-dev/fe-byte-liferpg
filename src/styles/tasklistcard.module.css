@@ -1,0 +1,25 @@
+.taskcard {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  align-items: center;
+  background-color: white;
+  color: black;
+  margin: 0.5rem;
+}
+
+.taskcardright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.taskcard button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  background-color: white;
+  border: none;
+  margin-left: 0.5rem;
+}

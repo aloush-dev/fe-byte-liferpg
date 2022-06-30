@@ -1,0 +1,6 @@
+.container {
+  grid-area: game;
+  background-color: grey;
+  margin: 0.5rem;
+  color: white;
+}
