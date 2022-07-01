@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { userContext } from "../Context/User.js";
 import styles from "../styles/login.module.css";
+import {SignUp} from "../components/SignUp"
 
 export const Login = () => {
   const { setUser } = useContext(userContext);
@@ -33,7 +34,7 @@ export const Login = () => {
         return newUser;
       });
     } else {
-      alert("Please enter valid username or password");
+      alert("Please enter valid username or password or create an account");
     }
 
     setUserToBuild({ username: "", password: "" });
@@ -46,7 +47,7 @@ export const Login = () => {
   return (
     <>
       {signUp ? (
-        "Sign Up Then Idiot"
+        <SignUp /> 
       ) : (
         <div className={styles.logincontainer}>
           <div className={styles.loginCard}>
