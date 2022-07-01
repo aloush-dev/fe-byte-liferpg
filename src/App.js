@@ -10,17 +10,29 @@ import { Login } from "./components/Login";
 
 function App() {
   const [user, setUser] = useState({ username: "" });
-  console.log(user);
+
+  if(user.username){
+    return (
+
+      <userContext.Provider value={{ user, setUser }}>
+      <div className="container">
+        <Header />
+        <Game />
+        <Routes>
+          <Route path="/" element={<TaskList />} />
+        </Routes>
+        <Nav />
+      </div>
+    </userContext.Provider>
+
+    )
+  }
 
   return (
     <userContext.Provider value={{ user, setUser }}>
       <div className="container">
         <Header />
-        {user.username ? <Game /> : <Login />}
-        <Routes>
-          <Route path="/" element={<TaskList />} />
-        </Routes>
-        <Nav />
+        <Login />
       </div>
     </userContext.Provider>
   );
