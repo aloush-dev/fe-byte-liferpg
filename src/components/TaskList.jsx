@@ -8,7 +8,7 @@ export const TaskList = () => {
 
   const [taskToPost, setTaskToPost] = useState({
     task_name: "",
-    task_difficulty: 0,
+    task_difficulty: 1,
   });
 
   function handleSubmit(event) {
@@ -22,7 +22,7 @@ export const TaskList = () => {
       }
     });
 
-    setTaskToPost({ task_name: "", task_difficulty: 0 });
+    setTaskToPost({ task_name: "", task_difficulty: 1 });
   }
 
   const fakeTasks = [

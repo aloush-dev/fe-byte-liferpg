@@ -15,10 +15,10 @@ const lifeRpgApi = axios.create({
 });
 
 export const getCSRFToken = async () => {
-  const csrfResponse = await fetch("https://byte-liferpg.herokuapp.com/csrf/", {
-    credentials: "same-origin",
-  });
-  return csrfResponse.headers.get("X-CSRFToken");
+  const csrfResponse = await lifeRpgApi
+    .get("/csrf/", {
+    });
+  return csrfResponse.headers['x-csrftoken']
 };
 
 export const getTasks = async () => {
@@ -48,9 +48,15 @@ export const getProfile = async () => {
   });
 };
 
-export const postTask = (taskToPost) => {
+export const postTask = async (taskToPost) => {
+  let cookie = await getCSRFToken()
   return lifeRpgApi
-    .post("/tasks/", taskToPost)
+    .post("/tasks/", taskToPost, {
+      // add this too all dangerous requests
+      headers: {
+        'X-CSRFTOKEN': cookie
+      }
+    })
     .then((data) => {
       return data;
     })
