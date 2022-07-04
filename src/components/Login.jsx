@@ -1,7 +1,9 @@
 import { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { userContext } from "../Context/User.js";
 import styles from "../styles/login.module.css";
+import { loginUser } from "../utils/api.js";
+import { SignUp } from "./SignUp.jsx";
 
 export const Login = () => {
   const { setUser } = useContext(userContext);
@@ -13,29 +15,22 @@ export const Login = () => {
 
   const [signUp, setSignUp] = useState(false);
 
-  const validUser = [
-    { username: "nathan", password: "123" },
-    { username: "andy", password: "456" },
-  ];
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    const filteredUsers = validUser.filter((user) => {
-      return userToBuild.username === user.username;
-    });
-    if (
-      filteredUsers.length === 1 &&
-      filteredUsers[0].password === userToBuild.password
-    ) {
-      setUser((oldUser) => {
-        const newUser = { ...oldUser };
-        newUser.username = userToBuild.username;
-        return newUser;
-      });
-    } else {
-      alert("Please enter valid username or password");
-    }
 
+    setUser((oldUser) => {
+      const newUser = { ...oldUser };
+      newUser.username = userToBuild.username;
+      return newUser;
+    });
+
+    loginUser(userToBuild).then((response) => {
+      if (response.status === 202) {
+        setUser({ username: userToBuild.username });
+      } else {
+        alert("Username or password is incorrect");
+      }
+    });
     setUserToBuild({ username: "", password: "" });
   };
 
@@ -46,7 +41,7 @@ export const Login = () => {
   return (
     <>
       {signUp ? (
-        "Sign Up Then Idiot"
+        <SignUp />
       ) : (
         <div className={styles.logincontainer}>
           <div className={styles.loginCard}>

@@ -1,21 +1,86 @@
+import { useEffect, useState } from "react";
 import styles from "../styles/tasklist.module.css";
+import { getTasks, postTask } from "../utils/api";
 import { TaskListCard } from "./TaskListCard";
 
 export const TaskList = () => {
+  const [tasks, setTasks] = useState();
+
+  const [taskToPost, setTaskToPost] = useState({
+    task_name: "",
+    task_difficulty: 0,
+  });
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    postTask(taskToPost).then((data) => {
+      if (data.status === 202) {
+        alert("Task Added");
+      } else {
+        alert("Could not add task, please try again");
+      }
+    });
+
+    setTaskToPost({ task_name: "", task_difficulty: 0 });
+  }
 
   const fakeTasks = [
     { name: "make the bed", difficulty: 1, is_completed: false },
     { name: "go to the shop", difficulty: 1, is_completed: false },
-    { name: "have 4 cups of water", difficulty: 2, is_completed: false },
-    { name: "another task", difficulty: 1, is_completed: false },
-    { name: "a really difficult task", difficulty: 3, is_completed: false },
   ];
+
+  useEffect(() => {
+    getTasks().then((data) => {
+      console.log(data);
+    });
+  }, []);
 
   return (
     <div className={styles.container}>
+      <form onSubmit={handleSubmit}>
+        <div className={styles.postcomment}>
+          <label>
+            <div className={styles.label}>New Task</div>
+            <div className={styles.inputcontainer}>
+              <textarea
+                placeholder="Wow, what an amazing post!"
+                className={styles.inputfield}
+                required
+                onChange={(event) => {
+                  setTaskToPost((oldTask) => {
+                    const newTask = { ...oldTask };
+                    newTask.task_name = event.target.value;
+                    return newTask;
+                  });
+                }}
+                value={taskToPost.task_name}
+                type="text"
+              ></textarea>
+              <select
+                onChange={(event) => {
+                  setTaskToPost((oldTask) => {
+                    const newTask = { ...oldTask };
+                    newTask.task_difficulty = event.target.value;
+                    return newTask;
+                  });
+                }}
+              >
+                <option value={1}>Very Easy</option>
+                <option value={2}>Easy</option>
+                <option value={3}>Medium</option>
+                <option value={4}>Hard</option>
+                <option value={5}>Very Hard</option>
+              </select>
+              <button className={styles.inputbutton}>Post</button>
+            </div>
+          </label>
+        </div>
+      </form>
+
       <ul>
         {fakeTasks.map((task, index) => {
-          return <TaskListCard task={task} index={index} />;
+          return <TaskListCard task={task} index={index} key={index} />;
         })}
       </ul>
     </div>
