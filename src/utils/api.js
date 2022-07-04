@@ -1,5 +1,4 @@
 import axios from "axios";
-import Cookies from "js-cookie";
 
 // const getCSRFToken = async () => {
 //     const csrfResponse = await fetch(
