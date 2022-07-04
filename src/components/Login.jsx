@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { userContext } from "../Context/User.js";
 import styles from "../styles/login.module.css";
 import { loginUser, getProfile } from "../utils/api.js";
