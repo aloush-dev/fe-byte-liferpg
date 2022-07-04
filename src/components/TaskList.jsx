@@ -32,7 +32,8 @@ export const TaskList = () => {
 
   useEffect(() => {
     getTasks().then((data) => {
-      console.log(data);
+      console.log(data)
+      setTasks(data)
     });
   }, []);
 

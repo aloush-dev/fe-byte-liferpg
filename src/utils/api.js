@@ -5,9 +5,21 @@ const lifeRpgApi = axios.create({
 });
 
 export const getTasks = () => {
+  let cookieValue = document.cookie.replace(
+    /(?:(?:^|.*;\s*)csrftoken\s*\=\s*([^;]*).*$)|^.*$/,
+    "$1"
+  );
+
+  console.log(cookieValue);
+
   return lifeRpgApi
-    .get("/tasks/")
+    .get("/tasks/", {
+        "X-XSRF-TOKEN": {
+        'XSRF-TOKEN': cookieValue,
+      },
+    })
     .then((data) => {
+        console.log(data)
       return data;
     })
     .catch((err) => {
@@ -39,9 +51,8 @@ export const createUser = (userToPost) => {
 
 export const loginUser = (userToLogin) => {
   return lifeRpgApi
-    .post("/login/", userToLogin, {withCredentials:true})
+    .post("/login/", userToLogin)
     .then((data) => {
-        console.log(data.headers)
       return data;
     })
     .catch((err) => {
