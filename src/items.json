@@ -1,0 +1,463 @@
+// {
+//   "item_name": "",
+//   "price": 0,
+//   "unlock_xp ": 0,
+//   "description": "",
+//   "category": "",
+//   "sprite": "assets/",
+//   "bought": false,
+//   "shop": "furniture"
+// }
+
+[
+  {
+    "item_name": "Double Bed Green Plastic",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "Green double bed, with a plastic frame",
+    "category": "bedroom",
+    "sprite": "assets/Bed_1_double_green_plastic.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Double Bed Green Wood",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "Green double bed, with a wooden frame",
+    "category": "bedroom",
+    "sprite": "assets/Bed_1_double_green_wood.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Double Bed Red Plastic",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "Red double bed, with a plastic frame",
+    "category": "bedroom",
+    "sprite": "assets/Bed_1_double_red_plastic.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Double Bed Red Wood",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "Red double bed, with a wooden frame",
+    "category": "bedroom",
+    "sprite": "assets/Bed_1_double_red_wood.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Double Bed Yellow Plastic",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "Yellow double bed, with a plastic frame",
+    "category": "bedroom",
+    "sprite": "assets/Bed_1_double_yellow_plastic.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Double Bed Yellow Wood",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "Yellow double bed, with a wood frame",
+    "category": "bedroom",
+    "sprite": "assets/Bed_1_double_yellow_wood.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Single Bed Green Plastic",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "Green single bed, with a plastic frame",
+    "category": "bedroom",
+    "sprite": "assets/Bed_1_single_green_plastic.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Single Bed Green Wood",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "Green single bed, with a wooden frame",
+    "category": "bedroom",
+    "sprite": "assets/Bed_1_single_green_wood.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Single Bed Red Plastic",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "Red single bed, with a plastic frame",
+    "category": "bedroom",
+    "sprite": "assets/Bed_1_single_red_plastic.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Single Bed Red Wood",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "Red single bed, with a wooden frame",
+    "category": "bedroom",
+    "sprite": "assets/Bed_1_single_red_wood.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Single Bed Yellow Plastic",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "Yellow single bed, with a plastic frame",
+    "category": "bedroom",
+    "sprite": "assets/Bed_1_single_yellow_plastic.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Single Bed Yellow Wood",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "Yellow single bed, with a wood frame",
+    "category": "bedroom",
+    "sprite": "assets/Bed_1_single_yellow_wood.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Bathtub Blue",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "Relax with bubbles",
+    "category": "bathroom",
+    "sprite": "assets/Bathtub_1_blue.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Bathtub Purple",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "Relax with bubbles",
+    "category": "bathroom",
+    "sprite": "assets/Bathtub_1_purple.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Bathtub Red",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "Relax with bubbles",
+    "category": "bathroom",
+    "sprite": "assets/Bathtub_1_red.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Bathtub Cream",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "Relax with bubbles",
+    "category": "bathroom",
+    "sprite": "assets/Bathtub_1_white.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Bathtub Black Trim",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "Relax with bubbles",
+    "category": "bathroom",
+    "sprite": "assets/Bathtub_2_black.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Bathtub Orange Trim",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "Relax with bubbles",
+    "category": "bathroom",
+    "sprite": "assets/Bathtub_2_orange.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Bathtub Red Trim",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "Relax with bubbles",
+    "category": "bathroom",
+    "sprite": "assets/Bathtub_2_red.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Fridge Black & White",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "For more than just a midnight snack",
+    "category": "kitchen",
+    "sprite": "assets/Fridge_1_black.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Fridge Blue & White",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "For more than just a midnight snack",
+    "category": "kitchen",
+    "sprite": "assets/Fridge_1_blue.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Fridge Green & White",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "For more than just a midnight snack",
+    "category": "kitchen",
+    "sprite": "assets/Fridge_1_green.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Fridge Red & White",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "For more than just a midnight snack",
+    "category": "kitchen",
+    "sprite": "assets/Fridge_1_red.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Fridge Cream",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "For more than just a midnight snack",
+    "category": "kitchen",
+    "sprite": "assets/Fridge_1_white.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Fridge Grey",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "For more than just a midnight snack",
+    "category": "kitchen",
+    "sprite": "assets/Fridge_2_black.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Fridge Blue",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "For more than just a midnight snack",
+    "category": "kitchen",
+    "sprite": "assets/Fridge_2_blue.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Fridge Green",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "For more than just a midnight snack",
+    "category": "kitchen",
+    "sprite": "assets/Fridge_2_green.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Fridge Red",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "For more than just a midnight snack",
+    "category": "kitchen",
+    "sprite": "assets/Fridge_2_red.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Fridge Cream",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "For more than just a midnight snack",
+    "category": "kitchen",
+    "sprite": "assets/Fridge_2_white.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Sink Black",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "Wash your dishes or maybe yourself",
+    "category": "bathroom",
+    "sprite": "assets/Sink_black.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Sink Blue",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "Wash your dishes or maybe yourself",
+    "category": "bathroom",
+    "sprite": "assets/Sink_blue.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Sink Purple",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "Wash your dishes or maybe yourself",
+    "category": "bathroom",
+    "sprite": "assets/Sink_purple.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Sink Red",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "Wash your dishes or maybe yourself",
+    "category": "bathroom",
+    "sprite": "assets/Sink_red.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Sink Cream",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "Wash your dishes or maybe yourself",
+    "category": "bathroom",
+    "sprite": "assets/Sink_white.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Cooker Black",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "Cooker? Stove? Oven?",
+    "category": "kitchen",
+    "sprite": "assets/Stove_black.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Cooker Blue",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "Cooker? Stove? Oven?",
+    "category": "kitchen",
+    "sprite": "assets/Stove_blue.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Cooker Green",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "Cooker? Stove? Oven?",
+    "category": "kitchen",
+    "sprite": "assets/Stove_green.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Cooker Red",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "Cooker? Stove? Oven?",
+    "category": "kitchen",
+    "sprite": "assets/Stove_red.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Cooker Cream",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "Cooker? Stove? Oven?",
+    "category": "kitchen",
+    "sprite": "assets/Stove_white.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Toilet Red",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "The most important part of the bathroom",
+    "category": "bathroom",
+    "sprite": "assets/Toilet_1_red.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Toilet Black",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "The most important part of the bathroom",
+    "category": "bathroom",
+    "sprite": "assets/Toilet_black.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Toilet Blue",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "The most important part of the bathroom",
+    "category": "bathroom",
+    "sprite": "assets/Toilet_blue.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Toilet Orange",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "The most important part of the bathroom",
+    "category": "bathroom",
+    "sprite": "assets/Toilet_orange.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Toilet Purple",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "The most important part of the bathroom",
+    "category": "bathroom",
+    "sprite": "assets/Toilet_purple.png",
+    "bought": false,
+    "shop": "furniture"
+  },
+  {
+    "item_name": "Armchair Rounded Black",
+    "price": 0,
+    "unlock_xp ": 0,
+    "description": "Sit in rounded style",
+    "category": "",
+    "sprite": "assets/Armchair_1_black.png",
+    "bought": false,
+    "shop": "furniture"
+  }
+]
