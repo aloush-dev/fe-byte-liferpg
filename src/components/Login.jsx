@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { userContext } from "../Context/User.js";
 import styles from "../styles/login.module.css";
-import { loginUser } from "../utils/api.js";
+import { loginUser, getProfile } from "../utils/api.js";
 import { SignUp } from "./SignUp.jsx";
 
 export const Login = () => {
@@ -13,6 +13,15 @@ export const Login = () => {
   });
 
   const [signUp, setSignUp] = useState(false);
+
+  useEffect(() => {
+    const checkLogIn = async () => {
+      let loggedIn = await getProfile()
+      console.log(loggedIn)
+      return loggedIn
+    }
+    checkLogIn().then((data) => setUser({ username: data.data.username }))
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();

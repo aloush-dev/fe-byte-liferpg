@@ -11,15 +11,21 @@ import axios from "axios";
 //   };
 
 const lifeRpgApi = axios.create({
-  baseURL: "https://byte-liferpg.herokuapp.com",
-  withCredentials: true,
+  baseURL: "https://byte-liferpg.herokuapp.com", withCredentials: true,
 });
 
-export const getTasks = () => {
+export const getCSRFToken = async () => {
+  const csrfResponse = await fetch("https://byte-liferpg.herokuapp.com/csrf/", {
+    credentials: "same-origin",
+  });
+  return csrfResponse.headers.get("X-CSRFToken");
+};
+
+export const getTasks = async () => {
   return lifeRpgApi
     .get("/tasks/")
     .then((data) => {
-      console.log(data);
+      console.log(data.data);
       return data;
     })
     .catch((err) => {
@@ -27,7 +33,16 @@ export const getTasks = () => {
     });
 };
 
-export const getProfile = () => {
+export const getTasksNew = () => {
+     fetch('https://byte-liferpg.herokuapp.com/tasks').then((data)=>{
+        console.log(data)
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const getProfile = async () => {
   return lifeRpgApi.get("/profile/").then((data) => {
     return data;
   });
