@@ -30,12 +30,12 @@ export const TaskList = () => {
     { name: "go to the shop", difficulty: 1, is_completed: false },
   ];
 
-  useEffect(() => {
-    getTasks().then((data) => {
-      console.log(data)
-      setTasks(data)
-    });
-  }, []);
+  // useEffect(() => {
+  //   getTasks().then((data) => {
+  //     console.log(data)
+  //     setTasks(data)
+  //   });
+  // }, []);
 
   return (
     <div className={styles.container}>
