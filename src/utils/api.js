@@ -1,35 +1,31 @@
 import axios from "axios";
+import Cookies from "js-cookie";
+
+// const getCSRFToken = async () => {
+//     const csrfResponse = await fetch(
+//       "https://byte-liferpg.herokuapp.com/csrf/",
+//       {
+//         credentials: "same-origin",
+//       }
+//     );
+//     return csrfResponse.headers.get("X-CSRFToken");
+//   };
 
 const lifeRpgApi = axios.create({
   baseURL: "https://byte-liferpg.herokuapp.com",
+  withCredentials: true,
 });
 
-export const getCSRFToken = async () => {
-  const csrfResponse = await fetch("https://byte-liferpg.herokuapp.com/csrf/", {
-    credentials: "same-origin",
-  });
-  return csrfResponse.headers.get("X-CSRFToken");
-};
-
-// export const getTasks = async () => {
-//   // let cookie = await getCSRFToken()
-//   // console.log(cookie.headers)
-
-//   return lifeRpgApi
-//     .get("/tasks/")
-//     .then((data) => {
-//       console.log(data);
-//       return data;
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// };
-
-export const getTasksNew = () => {
-     fetch('https://byte-liferpg.herokuapp.com/tasks').then((data)=>{
-        console.log(data)
+export const getTasks = () => {
+  return lifeRpgApi
+    .get("/tasks/")
+    .then((data) => {
+      console.log(data);
+      return data;
     })
+    .catch((err) => {
+      console.log(err);
+    });
 };
 
 export const getProfile = () => {
@@ -70,3 +66,10 @@ export const loginUser = (userToLogin) => {
       console.log(err);
     });
 };
+
+export const getShop = () => {
+  return lifeRpgApi.post("/shops/").then((data) => {
+    return data;
+  });
+};
+
