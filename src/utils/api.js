@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const lifeRpgApi = axios.create({
-  baseURL: "https://byte-liferpg.herokuapp.com",
+  baseURL: "https://byte-liferpg.herokuapp.com", withCredentials: true,
 });
 
 export const getCSRFToken = async () => {
@@ -11,20 +11,20 @@ export const getCSRFToken = async () => {
   return csrfResponse.headers.get("X-CSRFToken");
 };
 
-// export const getTasks = async () => {
-//   // let cookie = await getCSRFToken()
-//   // console.log(cookie.headers)
+export const getTasks = async () => {
+  // let cookie = await getCSRFToken()
+  // console.log(cookie.headers)
 
-//   return lifeRpgApi
-//     .get("/tasks/")
-//     .then((data) => {
-//       console.log(data);
-//       return data;
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// };
+  return lifeRpgApi
+    .get("/tasks/")
+    .then((data) => {
+      console.log(data);
+      return data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 
 export const getTasksNew = () => {
      fetch('https://byte-liferpg.herokuapp.com/tasks').then((data)=>{
@@ -32,7 +32,7 @@ export const getTasksNew = () => {
     })
 };
 
-export const getProfile = () => {
+export const getProfile = async () => {
   return lifeRpgApi.get("/profile/").then((data) => {
     return data;
   });
