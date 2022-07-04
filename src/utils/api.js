@@ -12,13 +12,10 @@ export const getCSRFToken = async () => {
 };
 
 export const getTasks = async () => {
-  // let cookie = await getCSRFToken()
-  // console.log(cookie.headers)
-
   return lifeRpgApi
     .get("/tasks/")
     .then((data) => {
-      console.log(data);
+      console.log(data.data);
       return data;
     })
     .catch((err) => {
