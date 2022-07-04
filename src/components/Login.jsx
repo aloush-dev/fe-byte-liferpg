@@ -1,5 +1,4 @@
-import { useState, useContext, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState, useContext } from "react";
 import { userContext } from "../Context/User.js";
 import styles from "../styles/login.module.css";
 import { loginUser, getProfile } from "../utils/api.js";
@@ -46,6 +45,8 @@ export const Login = () => {
   const handleSignUp = () => {
     setSignUp(true);
   };
+
+
 
   return (
     <>
