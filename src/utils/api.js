@@ -65,6 +65,18 @@ export const createUser = (userToPost) => {
     });
 };
 
+export const logoutUser = () => {
+  return lifeRpgApi
+    .get("/logout/")
+    .then((data) => {
+      return data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+
 export const loginUser = (userToLogin) => {
   return lifeRpgApi
     .post("/login/", userToLogin)
@@ -121,5 +133,24 @@ export const getItems = () => {
     })
     .catch((err) => {
       console.log(err);
+    });
+};
+
+export const getItems = () => {
+  return lifeRpgApi.get("/items/").then((data) => {
+    return data;
+  });
+};
+
+export const updateUser = async (data) => {
+  let cookie = await getCSRFToken();
+  return lifeRpgApi
+    .patch("/profile/", data, {
+      headers: {
+        "X-CSRFTOKEN": cookie,
+      },
+    })
+    .then((response) => {
+      return response;
     });
 };
