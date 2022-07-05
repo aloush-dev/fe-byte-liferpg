@@ -9,6 +9,7 @@ import { userContext } from "./Context/User.js";
 import { Login } from "./components/Login";
 import { Profile } from "./components/Profile";
 import { Inventory } from "./components/Inventory";
+import {Shop} from "./components/Shop"
 
 function App() {
   const [user, setUser] = useState({ username: "" });
@@ -24,6 +25,7 @@ function App() {
             <Route path="/tasks" element={<TaskList />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/inventory" element={<Inventory />} />
+            <Route path="/shop" element={<Shop />} />
           </Routes>
           <Nav />
         </div>

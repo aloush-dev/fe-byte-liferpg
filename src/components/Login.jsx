@@ -12,19 +12,32 @@ export const Login = () => {
     username: "",
     password: "",
   });
-
+  useEffect(() => {
+    const checkLogIn = async () => {
+      let loggedIn = await getProfile();
+      return loggedIn;
+    };
+    checkLogIn().then((data) => setUser({ ...data.data  }))
+  }, [setUser]);
+  
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    setUser((oldUser) => {
-      const newUser = { ...oldUser };
-      newUser.username = userToBuild.username;
-      return newUser;
-    });
+    // setUser((oldUser) => {
+    //   const newUser = { ...oldUser };
+    //   newUser.username = userToBuild.username;
+    //   return newUser;
+    // });
 
     loginUser(userToBuild).then((response) => {
       if (response.status === 202) {
-        setUser({ username: userToBuild.username });
+        //setUser({ username: userToBuild.username });
+        const checkLogin = async () => {
+          let loggedIn = await getProfile();
+          console.log(loggedIn);
+          return loggedIn;
+        };
+        checkLogin().then((data) => setUser({ ...data.data }));
       } else {
         alert("Username or password is incorrect");
       }
@@ -36,13 +49,6 @@ export const Login = () => {
     setSignUp(true);
   };
 
-  useEffect(() => {
-    const checkLogIn = async () => {
-      let loggedIn = await getProfile();
-      return loggedIn;
-    };
-    checkLogIn().then((data) => setUser({ username: data.data.username }));
-  }, [setUser]);
 
   return (
     <>

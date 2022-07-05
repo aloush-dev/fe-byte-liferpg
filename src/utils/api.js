@@ -16,10 +16,8 @@ const lifeRpgApi = axios.create({
 });
 
 export const getCSRFToken = async () => {
-  const csrfResponse = await lifeRpgApi
-    .get("/csrf/", {
-    });
-  return csrfResponse.headers['x-csrftoken']
+  const csrfResponse = await lifeRpgApi.get("/csrf/", {});
+  return csrfResponse.headers["x-csrftoken"];
 };
 
 export const getTasks = async () => {
@@ -50,13 +48,13 @@ export const getProfile = () => {
 };
 
 export const postTask = async (taskToPost) => {
-  let cookie = await getCSRFToken()
+  let cookie = await getCSRFToken();
   return lifeRpgApi
     .post("/tasks/", taskToPost, {
       // add this too all dangerous requests
       headers: {
-        'X-CSRFTOKEN': cookie
-      }
+        "X-CSRFTOKEN": cookie,
+      },
     })
     .then((data) => {
       return data;
@@ -76,6 +74,18 @@ export const createUser = (userToPost) => {
       console.log(err);
     });
 };
+
+export const logoutUser = () => {
+  return lifeRpgApi
+    .get("/logout/")
+    .then((data) => {
+      return data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
 
 export const loginUser = (userToLogin) => {
   return lifeRpgApi
@@ -98,4 +108,23 @@ export const updateTask = () => {
   return lifeRpgApi.patch("/tasks", { is_completed: true }).then((data) => {
     return data;
   });
+};
+
+export const getItems = () => {
+  return lifeRpgApi.get("/items/").then((data) => {
+    return data;
+  });
+};
+
+export const updateUser = async (data) => {
+  let cookie = await getCSRFToken();
+  return lifeRpgApi
+    .patch("/profile/", data, {
+      headers: {
+        "X-CSRFTOKEN": cookie,
+      },
+    })
+    .then((response) => {
+      return response;
+    });
 };
