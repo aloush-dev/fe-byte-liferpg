@@ -11,8 +11,11 @@ import { Profile } from "./components/Profile";
 import { Inventory } from "./components/Inventory";
 import {Shop} from "./components/Shop"
 
+
+
 function App() {
-  const [user, setUser] = useState({ username: "" });
+  const [user, setUser] = useState({username: ""});
+
 
   if (user.username) {
     return (
@@ -35,10 +38,10 @@ function App() {
 
   return (
     <userContext.Provider value={{ user, setUser }}>
-      <div className="container">
-        <Header />
-        <Login />
-      </div>
+        <div className="container">
+          <Header />
+          <Login />
+        </div>
     </userContext.Provider>
   );
 }

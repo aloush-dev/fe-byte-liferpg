@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { userContext } from "../Context/User";
 import styles from "../styles/tasklist.module.css";
 import { getTasks, postTask } from "../utils/api";
 import { TaskListCard } from "./TaskListCard";
 
 export const TaskList = () => {
+  const { user, setUser } = useContext(userContext);
   const [tasks, setTasks] = useState([]);
 
   const [taskToPost, setTaskToPost] = useState({
@@ -14,10 +16,18 @@ export const TaskList = () => {
   function handleSubmit(event) {
     event.preventDefault();
 
-    postTask(taskToPost).then((data) => {
-      if (data.status === 202) {
-        alert("Task Added");
-      } else {
+    // setTasks((oldTasks) => {
+    //   const newTasks = [...oldTasks];
+    //   newTasks.push(taskToPost);
+    //   return newTasks;
+    // });
+
+    postTask(taskToPost).then(({ data }) => {
+      setUser((oldUser) => {
+        const newUser = {...oldUser}
+        return newUser;
+      });
+      if (!data) {
         alert("Could not add task, please try again");
       }
     });
@@ -27,12 +37,17 @@ export const TaskList = () => {
 
   useEffect(() => {
     getTasks().then(({ data }) => {
-      setTasks(data);
+      setTasks(
+        data.filter((task) => {
+          return !task.is_complete;
+        })
+      );
     });
-  }, []);
+  }, [user]);
 
   return (
     <div className={styles.container}>
+      <div className={styles.tasknav}></div>
       <div className={styles.newtaskcontainer}>
         <form onSubmit={handleSubmit}>
           <div className={styles.postcomment}>
@@ -77,7 +92,7 @@ export const TaskList = () => {
 
       <ul>
         {tasks.map((task, index) => {
-          return <TaskListCard task={task} key={index} />;
+          return <TaskListCard setTasks={setTasks} task={task} key={index} />;
         })}
       </ul>
     </div>

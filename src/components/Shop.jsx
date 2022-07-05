@@ -6,12 +6,18 @@ import { ShopItems } from "./ShopItems";
 export const Shop = () => {
   const [items, setItems] = useState([]);
 
+
+    
+
+    return (
+
   useEffect(() => {
     getItems().then((response) => {
       console.log(response.data);
       setItems(response.data);
     });
   }, []);
+
 
   return (
     <>
