@@ -103,3 +103,18 @@ export const getItems = () => {
     return data;
   });
 };
+
+export const updateUser = async (data) => {
+  let cookie = await getCSRFToken();
+  console.log(data, "API");
+  return lifeRpgApi
+    .patch("/profile/", data, {
+      // add this too all dangerous requests
+      headers: {
+        "X-CSRFTOKEN": cookie,
+      },
+    })
+    .then((response) => {
+      return response;
+    });
+};
