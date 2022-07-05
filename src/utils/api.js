@@ -75,6 +75,18 @@ export const createUser = (userToPost) => {
     });
 };
 
+export const logoutUser = () => {
+  return lifeRpgApi
+    .get("/logout/")
+    .then((data) => {
+      return data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+
 export const loginUser = (userToLogin) => {
   return lifeRpgApi
     .post("/login/", userToLogin)
@@ -106,10 +118,8 @@ export const getItems = () => {
 
 export const updateUser = async (data) => {
   let cookie = await getCSRFToken();
-  console.log(data, "API");
   return lifeRpgApi
     .patch("/profile/", data, {
-      // add this too all dangerous requests
       headers: {
         "X-CSRFTOKEN": cookie,
       },

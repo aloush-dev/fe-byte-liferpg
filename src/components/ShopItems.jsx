@@ -8,25 +8,20 @@ export const ShopItems = ({ item, idx }) => {
 
   const buyItem = () => {
     if (user.currency >= item.price) {
-      console.log(user, "<<<<");
-      setUser({
+      const newUser = {
         ...user,
         currency: user.currency - item.price,
         inventory: [...user.inventory, item.id],
-      });
-      updateUser(user); 
+      }
+      updateUser(newUser); 
+      setUser(newUser);
     }
   };
 
   const boughtItem = () => {
-    user.inventory.map((item, index) => {
-      if (index === idx) {
-        return true;
-      } else {
-        return false;
-      }
-    });
+    return user.inventory.includes(item.id)
   };
+
 
   return (
     <li className={styles.itemsList}>

@@ -12,7 +12,14 @@ export const Login = () => {
     username: "",
     password: "",
   });
-
+  useEffect(() => {
+    const checkLogIn = async () => {
+      let loggedIn = await getProfile();
+      return loggedIn;
+    };
+    checkLogIn().then((data) => setUser({ ...data.data  }))
+  }, [setUser]);
+  
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -42,13 +49,6 @@ export const Login = () => {
     setSignUp(true);
   };
 
-  useEffect(() => {
-    const checkLogIn = async () => {
-      let loggedIn = await getProfile();
-      return loggedIn;
-    };
-    checkLogIn().then((data) => setUser({ ...data.data  }))
-  }, [setUser]);
 
   return (
     <>
