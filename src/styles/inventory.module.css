@@ -1,0 +1,14 @@
+.container ul {
+  display: inline-grid;
+  max-height: 375px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  list-style-type: none;
+  
+}
+
+.container ul {
+}
+
+

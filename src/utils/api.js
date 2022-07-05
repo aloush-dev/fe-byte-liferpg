@@ -16,10 +16,8 @@ const lifeRpgApi = axios.create({
 });
 
 export const getCSRFToken = async () => {
-  const csrfResponse = await lifeRpgApi
-    .get("/csrf/", {
-    });
-  return csrfResponse.headers['x-csrftoken']
+  const csrfResponse = await lifeRpgApi.get("/csrf/", {});
+  return csrfResponse.headers["x-csrftoken"];
 };
 
 export const getTasks = async () => {
@@ -33,16 +31,6 @@ export const getTasks = async () => {
     });
 };
 
-export const getTasksNew = () => {
-  fetch("https://byte-liferpg.herokuapp.com/tasks")
-    .then((data) => {
-      console.log(data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
-
 export const getProfile = () => {
   return lifeRpgApi.get("/profile/").then((data) => {
     return data;
@@ -50,13 +38,13 @@ export const getProfile = () => {
 };
 
 export const postTask = async (taskToPost) => {
-  let cookie = await getCSRFToken()
+  let cookie = await getCSRFToken();
   return lifeRpgApi
-    .post("/tasks/", taskToPost, {
+    .post("/tasks/add/", taskToPost, {
       // add this too all dangerous requests
       headers: {
-        'X-CSRFTOKEN': cookie
-      }
+        "X-CSRFTOKEN": cookie,
+      },
     })
     .then((data) => {
       return data;
@@ -89,13 +77,49 @@ export const loginUser = (userToLogin) => {
 };
 
 export const getShop = () => {
-  return lifeRpgApi.post("/shops/").then((data) => {
+  return lifeRpgApi.get("/shops/").then((data) => {
     return data;
   });
 };
 
-export const updateTask = () => {
-  return lifeRpgApi.patch("/tasks", { is_completed: true }).then((data) => {
-    return data;
-  });
+export const updateTask = async (id) => {
+  let cookie = await getCSRFToken();
+  return lifeRpgApi
+    .patch(
+      `/tasks/edit/${id}`,
+      { is_complete: true },
+      {
+        // add this too all dangerous requests
+        headers: {
+          "X-CSRFTOKEN": cookie,
+        },
+      }
+    )
+    .then((data) => {
+      return data;
+    });
+};
+
+export const profileUpdate = async (updateInfo) => {
+  let cookie = await getCSRFToken();
+  return lifeRpgApi
+    .patch("/profile/", updateInfo, {
+      headers: {
+        "X-CSRFTOKEN": cookie,
+      },
+    })
+    .then((data) => {
+      return data;
+    });
+};
+
+export const getItems = () => {
+  return lifeRpgApi
+    .get("/items/")
+    .then(({ data }) => {
+      return data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
