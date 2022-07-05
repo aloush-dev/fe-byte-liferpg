@@ -1,30 +1,44 @@
 import { useState } from "react";
 import { FiCircle, FiCheckCircle } from "react-icons/fi";
-import { AiFillStar } from "react-icons/ai";
+import star from "../assets/icons/star.png";
 import styles from "../styles/tasklistcard.module.css";
 
-export const TaskListCard = ({ task, index }) => {
-
+export const TaskListCard = ({ task }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <>
-
       <li className={styles.taskcard}>
-        <p>{task.name}</p>
+        <p>{task.task_name}</p>
         <div className={styles.taskcardright}>
           <div>
-            {task.difficulty === 1 ? (
-              <AiFillStar />
-            ) : task.difficulty === 2 ? (
+            {task.task_difficulty === 1 ? (
+              <img src={star} alt="difficulty rating" />
+            ) : task.task_difficulty === 2 ? (
               <div>
-                <AiFillStar /> <AiFillStar />
+                <img src={star} alt="difficulty rating" />
+                <img src={star} alt="difficulty rating" />
+              </div>
+            ) : task.task_difficulty === 3 ? (
+              <div>
+                <img src={star} alt="difficulty rating" />
+                <img src={star} alt="difficulty rating" />
+                <img src={star} alt="difficulty rating" />
+              </div>
+            ) : task.task_difficulty === 4 ? (
+              <div>
+                <img src={star} alt="difficulty rating" />
+                <img src={star} alt="difficulty rating" />
+                <img src={star} alt="difficulty rating" />
+                <img src={star} alt="difficulty rating" />
               </div>
             ) : (
               <div>
-                <AiFillStar />
-                <AiFillStar />
-                <AiFillStar />
+                <img src={star} alt="difficulty rating" />
+                <img src={star} alt="difficulty rating" />
+                <img src={star} alt="difficulty rating" />
+                <img src={star} alt="difficulty rating" />
+                <img src={star} alt="difficulty rating" />
               </div>
             )}
           </div>

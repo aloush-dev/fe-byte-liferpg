@@ -3,15 +3,18 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: #dda059;
+  text-align: center;
+  height: 100%;
+  padding-top: 10rem;
 }
 
-.loginCard {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+.logincontainer input {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 0.2rem solid #6b3710;
+  border-radius: 10px;
+  margin: 0.5rem;
 }
 
 .formElement {
@@ -23,6 +26,9 @@
 }
 
 .logincontainer button {
-padding: 0.3rem;
-margin: 0.4rem;
+  padding: 0.3rem;
+  margin: 0.4rem;
+  font-size: 1rem;
+  border: 0.2rem solid #6b3710;
+  border-radius: 10px;
 }

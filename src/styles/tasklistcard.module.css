@@ -23,3 +23,7 @@
   border: none;
   margin-left: 0.5rem;
 }
+
+.taskcardright img {
+  max-width: 1.5rem;
+}
