@@ -13,7 +13,7 @@ export const Nav = () => {
         <button className={styles.navbut}><Link to="/profile"><RiAccountCircleFill/></Link></button>
         <button className={styles.navbut}><Link to="/tasks"><img src={tasks} alt="tasks"/></Link></button>
         <button className={styles.navbut}><Link to="/inventory"><img src={inventory} alt="inventory"/></Link></button>
-        <button className={styles.navbut}><AiFillShop/></button>
+        <button className={styles.navbut}><Link to="/shop"><AiFillShop/></Link></button>
       </div>
     </nav>
   );
