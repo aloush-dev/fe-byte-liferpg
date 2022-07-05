@@ -50,68 +50,62 @@ export const SignUp = () => {
 
     createUser(newUser).then((data) => {
       setUser({ username: username });
-      navigate("/");
+      navigate("/tasks");
     });
   };
 
   return (
     <>
       <div className={styles.signupcontainer}>
-        <div className={styles.signupCard}>
-          <form onSubmit={handleSubmit}>
-            <h2>Sign up</h2>
-            <div className={styles.formElement}>
-              <div className={styles.formLabel}>
-                <label>Email </label>
-                <input
-                  type="text"
-                  id="email"
-                  placeholder="Enter Email"
-                  required
-                  onChange={(event) => handleInputChange(event)}
-                ></input>
-              </div>
+        <form onSubmit={handleSubmit}>
+          <h2>Sign up</h2>
+          <div className={styles.formElement}>
+            <div className={styles.formLabel}>
+              <input
+                type="text"
+                id="username"
+                placeholder="Choose Username"
+                required
+                onChange={(event) => handleInputChange(event)}
+              ></input>
             </div>
-            <div className={styles.formElement}>
-              <div className={styles.formLabel}>
-                <label>Username </label>
-                <input
-                  type="text"
-                  id="username"
-                  placeholder="Choose Username"
-                  required
-                  onChange={(event) => handleInputChange(event)}
-                ></input>
-              </div>
+          </div>
+          <div className={styles.formElement}>
+            <div className={styles.formLabel}>
+              <input
+                type="text"
+                id="email"
+                placeholder="Enter Email"
+                required
+                onChange={(event) => handleInputChange(event)}
+              ></input>
             </div>
-            <div className={styles.formElement}>
-              <div className={styles.formLabel}>
-                <label>Password </label>
-                <input
-                  type="password"
-                  id="password"
-                  placeholder="Choose Password"
-                  required
-                  onChange={(event) => handleInputChange(event)}
-                ></input>{" "}
-              </div>
+          </div>
+          <div className={styles.formElement}>
+            <div className={styles.formLabel}>
+              <input
+                type="password"
+                id="password"
+                placeholder="Choose Password"
+                required
+                onChange={(event) => handleInputChange(event)}
+              ></input>{" "}
             </div>
-            <div className={styles.formElement}>
-              <div className={styles.formLabel}>
-                <label>Confirm Password</label>
-                <input
-                  type="password"
-                  id="confirmPassword"
-                  placeholder="Re-enter Password"
-                  required
-                  onChange={(event) => handleInputChange(event)}
-                ></input>
-              </div>{" "}
-            </div>
+          </div>
+          <div className={styles.formElement}>
+            <div className={styles.formLabel}>
+              <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Re-enter Password"
+                required
+                onChange={(event) => handleInputChange(event)}
+              ></input>
+            </div>{" "}
+          </div>
 
-            <button>Submit</button>
-          </form>
-        </div>
+          <button>Submit</button>
+        </form>
       </div>
     </>
   );

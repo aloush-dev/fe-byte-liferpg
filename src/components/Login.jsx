@@ -7,21 +7,11 @@ import { SignUp } from "./SignUp.jsx";
 export const Login = () => {
   const { setUser } = useContext(userContext);
 
+  const [signUp, setSignUp] = useState(false);
   const [userToBuild, setUserToBuild] = useState({
     username: "",
     password: "",
   });
-
-  const [signUp, setSignUp] = useState(false);
-
-  useEffect(() => {
-    const checkLogIn = async () => {
-      let loggedIn = await getProfile()
-      console.log(loggedIn)
-      return loggedIn
-    }
-    checkLogIn().then((data) => setUser({ username: data.data.username }))
-  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -46,7 +36,13 @@ export const Login = () => {
     setSignUp(true);
   };
 
-
+  useEffect(() => {
+    const checkLogIn = async () => {
+      let loggedIn = await getProfile();
+      return loggedIn;
+    };
+    checkLogIn().then((data) => setUser({ username: data.data.username }));
+  }, [setUser]);
 
   return (
     <>
@@ -54,49 +50,45 @@ export const Login = () => {
         <SignUp />
       ) : (
         <div className={styles.logincontainer}>
-          <div className={styles.loginCard}>
-            <form onSubmit={handleSubmit}>
-              <div className={styles.formElement}>
-                <div className={styles.formLabel}>
-                  <label>Username </label>
-                </div>
-                <div className={styles.formInput}>
-                  <input
-                    type="text"
-                    value={userToBuild.username}
-                    onChange={(event) => {
-                      setUserToBuild((oldUser) => {
-                        const newUser = { ...oldUser };
-                        newUser.username = event.target.value;
-                        return newUser;
-                      });
-                    }}
-                  ></input>
-                </div>
+          <form onSubmit={handleSubmit}>
+            <div className={styles.formElement}>
+              <div className={styles.formLabel}></div>
+              <div className={styles.formInput}>
+                <input
+                  placeholder="username"
+                  type="text"
+                  value={userToBuild.username}
+                  onChange={(event) => {
+                    setUserToBuild((oldUser) => {
+                      const newUser = { ...oldUser };
+                      newUser.username = event.target.value;
+                      return newUser;
+                    });
+                  }}
+                ></input>
               </div>
-              <div className={styles.formElement}>
-                <div className={styles.formLabel}>
-                  <label>Password </label>
-                </div>
-                <div className={styles.formInput}>
-                  <input
-                    type="password"
-                    value={userToBuild.password}
-                    onChange={(event) => {
-                      setUserToBuild((oldUser) => {
-                        const newUser = { ...oldUser };
-                        newUser.password = event.target.value;
-                        return newUser;
-                      });
-                    }}
-                  ></input>
-                </div>
+            </div>
+            <div className={styles.formElement}>
+              <div className={styles.formLabel}></div>
+              <div className={styles.formInput}>
+                <input
+                  placeholder="password"
+                  type="password"
+                  value={userToBuild.password}
+                  onChange={(event) => {
+                    setUserToBuild((oldUser) => {
+                      const newUser = { ...oldUser };
+                      newUser.password = event.target.value;
+                      return newUser;
+                    });
+                  }}
+                ></input>
               </div>
-              <div>
-                <button>Submit</button>
-              </div>
-            </form>
-          </div>
+            </div>
+            <div>
+              <button>Submit</button>
+            </div>
+          </form>
           <div>
             <button onClick={handleSignUp}> Sign Up</button>
           </div>
