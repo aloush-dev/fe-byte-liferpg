@@ -1,26 +1,22 @@
 .expbar {
-  background-color: aqua;
+  background-color: #86a749;
+  border-top: #c3de9a solid 0.5rem;
+  border-left: #c3de9a solid 0.5rem;
+  border-right: #c3de9a solid 0.5rem;
+  border-bottom: #c3de9a solid 0.5rem;
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem;
   font-size: 1.5rem;
+  padding: 0.5rem;
+  color: white;
+  font-weight: 900;
 }
 
 .exp {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid black;
-  width: 75%;
-}
-
-.playerlevel {
-  margin-left: 1rem;
-}
-
-.barmid {
-  margin-right: 7rem;
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 .currency {
@@ -29,6 +25,9 @@
   align-items: center;
 }
 
-.currency img {
+.expbar img {
   max-width: 3rem;
+  max-height: 2rem;
+  margin-right: 0.5rem;
 }
+

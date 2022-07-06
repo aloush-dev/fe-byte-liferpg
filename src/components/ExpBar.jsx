@@ -1,7 +1,7 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import styles from "../styles/expbar.module.css";
-import { getProfile } from "../utils/api";
-import coin from "../assets/icons/GoldenCoin.png";
+import coin from "../assets/icons/coin.png";
+import star from "../assets/icons/star.png";
 import { userContext } from "../Context/User";
 
 export const Expbar = () => {
@@ -10,15 +10,12 @@ export const Expbar = () => {
   return (
     <div className={styles.expbar}>
       <div className={styles.exp}>
-        <div className={styles.playerlevel}>
-          {user.experience < 100 ? 1 : ""}
-        </div>
-
-        <div className={styles.barmid}> {user.experience} / 100</div>
+        <img src={star} alt="xp counter" />
+        {user.experience}
       </div>
 
       <div className={styles.currency}>
-        <img src={coin} alt="currency counter"/>
+        <img src={coin} alt="currency counter" />
         {user.currency}
       </div>
     </div>

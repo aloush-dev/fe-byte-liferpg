@@ -1,21 +1,22 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { userContext } from "../Context/User.js";
 import styles from "../styles/profile.module.css";
-import { getTasks } from "../utils/api.js";
+import { getTasks, logoutUser } from "../utils/api.js";
 
 export const Profile = () => {
-  const { user } = useContext(userContext);
+  const { user, setUser } = useContext(userContext);
 
-  const [changePass, setChangePass] = useState(false);
   const [taskCount, setTaskCount] = useState(0);
 
-
-  getTasks().then(({ data }) => {
-    data.forEach((task)=>{
-      if (task.is_complete) {
-        setTaskCount(+1);
-      }})
-  });
+  useEffect(() => {
+    getTasks().then(({ data }) => {
+      let completedTasks = data.filter((task) => {
+        return task.is_complete;
+      });
+      setTaskCount(completedTasks.length);
+    });
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -27,24 +28,15 @@ export const Profile = () => {
 
       <h3>You've earned a total of {user.experience} XP</h3>
 
-
       <button
-        onClick={() => {
-          setChangePass(true);
+        onClick={async () => {
+          await logoutUser();
+          setUser({});
         }}
+        className={styles.navbut}
       >
-        Change Password
+        <Link to="/">Logout</Link>
       </button>
-      <div>
-        {changePass ? (
-          <form className={styles.changepass}>
-            <input placeholder="enter new password"></input>
-            <input placeholder="confirm new password"></input>
-          </form>
-        ) : (
-          ""
-        )}
-      </div>
     </div>
   );
 };

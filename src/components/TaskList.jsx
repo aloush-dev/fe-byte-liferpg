@@ -3,6 +3,7 @@ import { userContext } from "../Context/User";
 import styles from "../styles/tasklist.module.css";
 import { getTasks, postTask } from "../utils/api";
 import { TaskListCard } from "./TaskListCard";
+import { GrSend } from "react-icons/gr";
 
 export const TaskList = () => {
   const { user, setUser } = useContext(userContext);
@@ -16,15 +17,9 @@ export const TaskList = () => {
   function handleSubmit(event) {
     event.preventDefault();
 
-    // setTasks((oldTasks) => {
-    //   const newTasks = [...oldTasks];
-    //   newTasks.push(taskToPost);
-    //   return newTasks;
-    // });
-
     postTask(taskToPost).then(({ data }) => {
       setUser((oldUser) => {
-        const newUser = {...oldUser}
+        const newUser = { ...oldUser };
         return newUser;
       });
       if (!data) {
@@ -51,23 +46,22 @@ export const TaskList = () => {
       <div className={styles.newtaskcontainer}>
         <form onSubmit={handleSubmit}>
           <div className={styles.postcomment}>
-            <label>
-              <div className={styles.label}>New Task</div>
-              <div className={styles.inputcontainer}>
-                <textarea
-                  placeholder="Wow, what an amazing post!"
-                  className={styles.inputfield}
-                  required
-                  onChange={(event) => {
-                    setTaskToPost((oldTask) => {
-                      const newTask = { ...oldTask };
-                      newTask.task_name = event.target.value;
-                      return newTask;
-                    });
-                  }}
-                  value={taskToPost.task_name}
-                  type="text"
-                ></textarea>
+            <div className={styles.inputcontainer}>
+              <textarea
+                placeholder="Write a new task!"
+                className={styles.inputfield}
+                required
+                onChange={(event) => {
+                  setTaskToPost((oldTask) => {
+                    const newTask = { ...oldTask };
+                    newTask.task_name = event.target.value;
+                    return newTask;
+                  });
+                }}
+                value={taskToPost.task_name}
+                type="text"
+              ></textarea>
+              <div className={styles.rightarea}>
                 <select
                   onChange={(event) => {
                     setTaskToPost((oldTask) => {
@@ -83,9 +77,11 @@ export const TaskList = () => {
                   <option value={4}>Hard</option>
                   <option value={5}>Very Hard</option>
                 </select>
-                <button className={styles.inputbutton}>Post</button>
+                <button className={styles.inputbutton}>
+                  <GrSend />
+                </button>
               </div>
-            </label>
+            </div>
           </div>
         </form>
       </div>

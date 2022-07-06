@@ -5,28 +5,26 @@ import { ShopItems } from "./ShopItems";
 
 export const Shop = () => {
   const [items, setItems] = useState([]);
-
-
-    
-
-    return (
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getItems().then((response) => {
-      console.log(response.data);
       setItems(response.data);
+      setLoading(false);
     });
   }, []);
 
+  if (loading) {
+    return <p>Loading</p>;
+  }
 
   return (
-    <>
-      <h3 className={styles.title}>Shop</h3>
-      <ul className={styles.allItems}>
+    <div className={styles.container}>
+      <ul>
         {items.map((item, idx) => {
-          return <ShopItems item={item} idx={idx} />;
+          return <ShopItems item={item} key={idx} />;
         })}
       </ul>
-    </>
+    </div>
   );
 };

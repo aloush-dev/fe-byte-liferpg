@@ -4,18 +4,22 @@ import styles from "../styles/inventory.module.css";
 import { getItems } from "../utils/api";
 import { InventoryItemCard } from "./InventoryItemCard";
 
-export const Inventory = () => {
+export const Inventory = ({
+  bathroomLookUp,
+  kitchenLookUp,
+  livngRoomLookUp,
+}) => {
   const { user } = useContext(userContext);
 
-  const [loading, setLoading] = useState(false);
-  const[ownedItems, setOwnedItems] = useState([])
+  const [loading, setLoading] = useState(true);
+  const [ownedItems, setOwnedItems] = useState([]);
 
-  let itemArr = []
+  let itemArr = [];
 
   useEffect(() => {
-    getItems().then((data) => {
+    getItems().then((response) => {
       // eslint-disable-next-line
-      itemArr = data
+      itemArr = response.data;
       const ownedArray = itemArr.filter((item) => {
         return user.inventory.some((itemOwned) => {
           return item.id === itemOwned;
@@ -23,20 +27,26 @@ export const Inventory = () => {
       });
       setOwnedItems(ownedArray);
     });
-    setLoading(false)
+    setLoading(false);
   }, []);
-
 
   if (loading) {
     return <p>Loading</p>;
   }
 
-
   return (
     <div className={styles.container}>
       <ul>
         {ownedItems.map((item, index) => {
-          return <InventoryItemCard item={item} key={index} />;
+          return (
+            <InventoryItemCard
+              item={item}
+              key={index}
+              bathroomLookUp={bathroomLookUp}
+              kitchenLookUp={kitchenLookUp}
+              livngRoomLookUp={livngRoomLookUp}
+            />
+          );
         })}
       </ul>
     </div>

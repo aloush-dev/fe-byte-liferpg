@@ -1,18 +1,10 @@
-.allItems {
-  max-width: 390px;
+.container ul {
+  display: inline-grid;
+  max-height: 372px;
+  max-height: 372px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  grid-template-columns: 1fr 1fr 1fr;
   list-style-type: none;
+
 }
-
-@media (min-width: 300px) {
-  .allItems {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-  }
-}
-
-.title {
-  text-align: center;
-}
-
-

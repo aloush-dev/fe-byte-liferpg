@@ -76,7 +76,6 @@ export const logoutUser = () => {
     });
 };
 
-
 export const loginUser = (userToLogin) => {
   return lifeRpgApi
     .post("/login/", userToLogin)
@@ -128,18 +127,12 @@ export const profileUpdate = async (updateInfo) => {
 export const getItems = () => {
   return lifeRpgApi
     .get("/items/")
-    .then(({ data }) => {
+    .then((data) => {
       return data;
     })
     .catch((err) => {
       console.log(err);
     });
-};
-
-export const getItems = () => {
-  return lifeRpgApi.get("/items/").then((data) => {
-    return data;
-  });
 };
 
 export const updateUser = async (data) => {
@@ -152,5 +145,24 @@ export const updateUser = async (data) => {
     })
     .then((response) => {
       return response;
+    });
+};
+
+export const getRooms = () => {
+  return lifeRpgApi.get("/rooms/").then((data) => {
+    return data;
+  });
+};
+
+export const updateRooms = async (id, roomObject) => {
+  let cookie = await getCSRFToken();
+  return lifeRpgApi
+    .patch(`/rooms/edit/${id}`, roomObject, {
+      headers: {
+        "X-CSRFTOKEN": cookie,
+      },
+    })
+    .then((data) => {
+      return data;
     });
 };
