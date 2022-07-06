@@ -115,7 +115,7 @@ export const InventoryItemCard = ({
     getRooms().then((data) => {
       setRooms(data.data);
     });
-  });
+  }, []);
 
   return (
     <>

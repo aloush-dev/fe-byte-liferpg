@@ -63,6 +63,7 @@ export const TaskList = () => {
               ></textarea>
               <div className={styles.rightarea}>
                 <select
+                value={taskToPost.task_difficulty}
                   onChange={(event) => {
                     setTaskToPost((oldTask) => {
                       const newTask = { ...oldTask };
